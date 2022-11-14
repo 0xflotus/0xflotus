@@ -10,7 +10,7 @@ print('👨🏻‍💻 by day && night 😎')
 
 ```prolog
 job_title(X) :-
-    member(X, ['Fullstack Developer', 'Software Engineer', 'Security Researcher', 'Data Scientist']),
+    member(X, ['Fullstack Developer', 'Software Engineer', 'Security Researcher', 'Data Scientist', 'Code Artist']),
     \+ member(X, ['Consultant']).
 ```
 
