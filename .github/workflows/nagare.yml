@@ -1,0 +1,28 @@
+name: nagare
+on:
+  schedule:
+    - cron: "17 0 * * *"
+  push:
+    paths:
+      - .github/workflows/nagare.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nagare
+  cancel-in-progress: false
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: monex00/nagare@ee1fcb79832a256837baf2aea672396447a41041
+        with:
+          token: ${{ github.token }}
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nagare/nagare.svg
+          git diff --cached --quiet || git commit -m "Redraw nagare"
+          git pull --rebase -q
+          git push
