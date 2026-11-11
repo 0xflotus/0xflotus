@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-![](./nagare/nagare.svg)
+![](./koi/koi.svg)
 
 ```clojure
 ((defn func [] (println (clojure.string/join "\u000a" ["|_|O|_|" "|_|_|O|" "|O|O|O|"]))))
